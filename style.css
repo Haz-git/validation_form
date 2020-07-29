@@ -1,0 +1,114 @@
+/* Defining a scope here for css variables. :root essentially means a global variable */
+
+:root {
+    --success-color: #2ecc71;
+    --error-color: #e74c3c
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body {
+    background-color: rgb(26, 34, 54);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgb(70, 79, 102);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    width: 400px;
+}
+
+.form {
+    padding: 20px 20px;
+}
+
+h2 {
+    font-weight: 900;
+    color: rgb(15, 23, 41);
+    font-size: 25px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.form-control {
+    padding: 12px 30px;
+    position: relative;
+}
+
+.form-control label {
+    font-weight: 900;
+    font-size: 17px;
+    color: rgb(15, 23, 41);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.form-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.form-control input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+/*If the div also has a class success, then color the border-color green. If it has the class error, then color the border-color red. */
+
+.form-control.success input {
+    border-color: var(--success-color);
+}
+
+.form-control.error input {
+    border-color: var(--error-color);
+}
+
+.form-control small {
+    color: var(--error-color);
+    margin-top: 5px;
+    position: absolute;
+    /*If you want to position a child element as absolute, you must position the parent container as relative...check out .form-control! */
+    visibility: hidden;
+
+    /*There's a difference between visibility: hidden; VS. display: none;...Visibility hidden will just make the object invisible while display:none; will collapse everything around it...This is why you use display:none in your dynamic nav-bar!! */
+
+}
+
+.form-control.error small {
+    visibility: visible;
+}
+
+.but {
+    text-align: center !important;
+    padding: 20px 20px;
+}
+
+.form button {
+    font-weight: 900;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(123, 134, 160);
+    border: 2px solid rgb(123, 134, 160);
+    border-radius: 4px;
+    color: white;
+    display: block;
+    font-size: 18px;
+    padding: 12px 12px;
+    width: 100%;
+}
